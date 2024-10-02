@@ -21,7 +21,7 @@ class RawYoutubePlayer extends StatefulWidget {
     this.onEnded,
   });
 
-  double ? w;
+  double?  w;
   double? h;
 
   /// {@macro youtube_player_flutter.onEnded}
@@ -244,8 +244,8 @@ class _RawYoutubePlayerState extends State<RawYoutubePlayer>
                 background-color: #000000;
                 overflow: hidden;
                 position: fixed;
-                height: ${widget.h}px;
-                width: ${widget.w}px; 
+                height: ${widget.h!}px;
+                width: ${widget.w!}px; 
                 pointer-events: none;
             }
         </style>
@@ -264,8 +264,8 @@ class _RawYoutubePlayerState extends State<RawYoutubePlayer>
                 player = new YT.Player('player', {
                     //height: '100%',
                     //width: '100%',
-                    height: '${widget.h}px',
-                    width: '${widget.w}px',
+                    height: '${widget.h!}px',
+                    width: '${widget.w!}px',
                     videoId: '${controller!.initialVideoId}',
                     playerVars: {
                         'controls': 0,

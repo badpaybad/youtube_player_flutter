@@ -298,7 +298,7 @@ class _YoutubePlayerState extends State<YoutubePlayer> {
         clipBehavior: Clip.none,
         children: [
           RawYoutubePlayer(
-            w:widget.width,
+            w:widget.width!,
             h:h,
             key: widget.key,
             onEnded: (YoutubeMetaData metaData) {
