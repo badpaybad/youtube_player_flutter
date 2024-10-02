@@ -291,7 +291,9 @@ class _YoutubePlayerState extends State<YoutubePlayer> {
   }
 
   Widget _buildPlayer(double defaultW,{required Widget errorWidget}) {
-    var h= (widget.width??defaultW) / widget.aspectRatio;
+    print("widget.width ${widget.width} defaultW ${defaultW}");
+    double w=(widget.width??defaultW);
+    double h= (widget.width??defaultW) / widget.aspectRatio;
     return AspectRatio(
       aspectRatio: _aspectRatio,
       child: Stack(
@@ -299,7 +301,7 @@ class _YoutubePlayerState extends State<YoutubePlayer> {
         clipBehavior: Clip.none,
         children: [
           RawYoutubePlayer(
-            w:(widget.width??defaultW),
+            w:w,
             h:h,
             key: widget.key,
             onEnded: (YoutubeMetaData metaData) {
