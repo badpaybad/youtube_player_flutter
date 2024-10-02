@@ -251,7 +251,7 @@ class _RawYoutubePlayerState extends State<RawYoutubePlayer>
                 pointer-events: none;
             }
         </style>
-        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+        <meta name='viewport' content='width=${widget.w}, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
     </head>
     <body>
         <div id="player"></div>
@@ -266,8 +266,8 @@ class _RawYoutubePlayerState extends State<RawYoutubePlayer>
                 player = new YT.Player('player', {
                     //height: '100%',
                     //width: '100%',
-                    height: '${widget.h}px',
-                    width: '${widget.w}px',
+                    height: '${widget.h}',
+                    width: '${widget.w}',
                     videoId: '${controller!.initialVideoId}',
                     playerVars: {
                         'controls': 0,
