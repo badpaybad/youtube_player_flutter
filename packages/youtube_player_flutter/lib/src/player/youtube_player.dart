@@ -301,8 +301,8 @@ class _YoutubePlayerState extends State<YoutubePlayer> {
         clipBehavior: Clip.none,
         children: [
           RawYoutubePlayer(
-            w:w,
-            h:h,
+            w,
+            h,
             key: widget.key,
             onEnded: (YoutubeMetaData metaData) {
               if (controller.flags.loop) {
