@@ -231,6 +231,7 @@ class _YoutubePlayerState extends State<YoutubePlayer> {
 
   @override
   Widget build(BuildContext context) {
+    var defaultW= MediaQuery.of(context).size.width;
     return Material(
       elevation: 0,
       color: Colors.black,
@@ -238,8 +239,8 @@ class _YoutubePlayerState extends State<YoutubePlayer> {
         controller: controller,
         child: Container(
           color: Colors.black,
-          width: widget.width ?? MediaQuery.of(context).size.width,
-          child: _buildPlayer(
+          width: widget.width ?? defaultW,
+          child: _buildPlayer(defaultW,
             errorWidget: Container(
               color: Colors.black87,
               padding:
@@ -289,8 +290,8 @@ class _YoutubePlayerState extends State<YoutubePlayer> {
     );
   }
 
-  Widget _buildPlayer({required Widget errorWidget}) {
-    var h= widget.width! / widget.aspectRatio;
+  Widget _buildPlayer(double defaultW,{required Widget errorWidget}) {
+    var h= (widget.width??defaultW) / widget.aspectRatio;
     return AspectRatio(
       aspectRatio: _aspectRatio,
       child: Stack(
@@ -298,7 +299,7 @@ class _YoutubePlayerState extends State<YoutubePlayer> {
         clipBehavior: Clip.none,
         children: [
           RawYoutubePlayer(
-            w:widget.width!,
+            w:(widget.width??defaultW),
             h:h,
             key: widget.key,
             onEnded: (YoutubeMetaData metaData) {
