@@ -71,6 +71,8 @@ class _RawYoutubePlayerState extends State<RawYoutubePlayer>
 
   @override
   Widget build(BuildContext context) {
+    print("player---------------- $player");
+
     controller = YoutubePlayerController.of(context);
     return IgnorePointer(
       ignoring: true,
