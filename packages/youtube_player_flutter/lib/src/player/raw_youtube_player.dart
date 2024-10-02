@@ -243,7 +243,7 @@ class _RawYoutubePlayerState extends State<RawYoutubePlayer>
                 overflow: hidden;
                 position: fixed;
                 height: ${widget.h}px;
-                width: ${widget.w}px;
+                width: ${widget.w}px; 
                 pointer-events: none;
             }
         </style>
