@@ -66,13 +66,15 @@ class _RawYoutubePlayerState extends State<RawYoutubePlayer>
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+
     controller = YoutubePlayerController.of(context);
     return IgnorePointer(
       ignoring: true,
       child: InAppWebView(
         key: widget.key,
         initialData: InAppWebViewInitialData(
-          data: player,
+          data: player( size.width , size.height),
           baseUrl: WebUri.uri(Uri.https('www.youtube.com')),
           encoding: 'utf-8',
           mimeType: 'text/html',
@@ -225,7 +227,7 @@ class _RawYoutubePlayerState extends State<RawYoutubePlayer>
     );
   }
 
-  String get player => '''
+  String  player(double w, double h ) {return '''
     <!DOCTYPE html>
     <html>
     <head>
@@ -255,8 +257,10 @@ class _RawYoutubePlayerState extends State<RawYoutubePlayer>
             var timerId;
             function onYouTubeIframeAPIReady() {
                 player = new YT.Player('player', {
-                    height: '100%',
-                    width: '100%',
+                    //height: '100%',
+                   // width: '100%',
+                   height: $w+'px',
+                    width: $h+'px',
                     videoId: '${controller!.initialVideoId}',
                     playerVars: {
                         'controls': 0,
@@ -375,7 +379,7 @@ class _RawYoutubePlayerState extends State<RawYoutubePlayer>
         </script>
     </body>
     </html>
-  ''';
+  ''')
 
   String boolean({required bool value}) => value == true ? "'1'" : "'0'";
 
