@@ -74,7 +74,7 @@ class _RawYoutubePlayerState extends State<RawYoutubePlayer>
 
     controller = YoutubePlayerController.of(context);
 
-    print("player---------------- $player");
+    // print("player---------------- $player");
 
     return IgnorePointer(
       ignoring: true,
@@ -271,7 +271,7 @@ class _RawYoutubePlayerState extends State<RawYoutubePlayer>
                     videoId: '${controller!.initialVideoId}',
                     playerVars: {
                         'controls': 0,
-                        'playsinline': 1,
+                        'playsinline': 0,
                         'enablejsapi': 1,
                         'fs': 0,
                         'rel': 0,
@@ -285,7 +285,11 @@ class _RawYoutubePlayerState extends State<RawYoutubePlayer>
                         'end': ${controller!.flags.endAt}
                     },
                     events: {
-                        onReady: function(event) { window.flutter_inappwebview.callHandler('Ready'); },
+                        onReady: function(event) { window.flutter_inappwebview.callHandler('Ready');
+                          setTimeout(function(){
+                            setSize(${widget.w}, ${widget.h})
+                          },1000);
+                        },
                         onStateChange: function(event) { sendPlayerStateChange(event.data); },
                         onPlaybackQualityChange: function(event) { window.flutter_inappwebview.callHandler('PlaybackQualityChange', event.data); },
                         onPlaybackRateChange: function(event) { window.flutter_inappwebview.callHandler('PlaybackRateChange', event.data); },
