@@ -293,7 +293,7 @@ class _YoutubePlayerState extends State<YoutubePlayer> {
   Widget _buildPlayer(double defaultW,{required Widget errorWidget}) {
     double w=(widget.width??defaultW);
     print("widget.width ${widget.width} defaultW ${defaultW}");
-    double h= (widget.width??defaultW) / widget.aspectRatio;
+    double h= w / widget.aspectRatio;
     return AspectRatio(
       aspectRatio: _aspectRatio,
       child: Stack(
