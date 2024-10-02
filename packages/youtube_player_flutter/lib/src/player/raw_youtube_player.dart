@@ -271,7 +271,7 @@ class _RawYoutubePlayerState extends State<RawYoutubePlayer>
                     videoId: '${controller!.initialVideoId}',
                     playerVars: {
                         'controls': 0,
-                        'playsinline': 0,
+                        'playsinline': 1,
                         'enablejsapi': 1,
                         'fs': 0,
                         'rel': 0,
