@@ -71,9 +71,11 @@ class _RawYoutubePlayerState extends State<RawYoutubePlayer>
 
   @override
   Widget build(BuildContext context) {
-    print("player---------------- $player");
 
     controller = YoutubePlayerController.of(context);
+
+    print("player---------------- $player");
+
     return IgnorePointer(
       ignoring: true,
       child: InAppWebView(
