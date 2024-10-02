@@ -246,15 +246,15 @@ class _RawYoutubePlayerState extends State<RawYoutubePlayer>
                 background-color: #000000;
                 overflow: hidden;
                 position: fixed;
-                height: ${widget.h}px;
-                width: ${widget.w}px; 
+                height: 100%;
+                width: 100%; 
                 pointer-events: none;
             }
         </style>
-        <meta name='viewport' content='width=${widget.w}, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
     </head>
     <body>
-        <div id="player"></div>
+        <div id="player" style="width:${widget.w}px; height:${widget.h}px" ></div>
         <script>
             var tag = document.createElement('script');
             tag.src = "https://www.youtube.com/iframe_api";
