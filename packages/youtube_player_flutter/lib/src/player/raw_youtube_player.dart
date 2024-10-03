@@ -254,7 +254,7 @@ class _RawYoutubePlayerState extends State<RawYoutubePlayer>
         <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
     </head>
     <body>
-        <div id="player" style="width:${widget.w}px; height:${widget.h}px" ></div>
+        <div id="player" ></div>
         <script>
             var tag = document.createElement('script');
             tag.src = "https://www.youtube.com/iframe_api";
@@ -264,10 +264,10 @@ class _RawYoutubePlayerState extends State<RawYoutubePlayer>
             var timerId;
             function onYouTubeIframeAPIReady() {
                 player = new YT.Player('player', {
-                    //height: '100%',
-                    //width: '100%',
-                    height: '${widget.h}',
-                    width: '${widget.w}',
+                    height: '100%',
+                    width: '100%',
+                    //height: '${widget.h}',
+                    //width: '${widget.w}',
                     videoId: '${controller!.initialVideoId}',
                     playerVars: {
                         'controls': 0,
@@ -286,9 +286,9 @@ class _RawYoutubePlayerState extends State<RawYoutubePlayer>
                     },
                     events: {
                         onReady: function(event) { window.flutter_inappwebview.callHandler('Ready');
-                          setTimeout(function(){
-                            setSize(${widget.w}, ${widget.h})
-                          },1000);
+                          //setTimeout(function(){
+                          //  setSize(${widget.w}, ${widget.h})
+                          //},1000);
                         },
                         onStateChange: function(event) { sendPlayerStateChange(event.data); },
                         onPlaybackQualityChange: function(event) { window.flutter_inappwebview.callHandler('PlaybackQualityChange', event.data); },
